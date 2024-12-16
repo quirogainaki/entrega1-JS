@@ -79,4 +79,99 @@ pedirNombre();
     }
 
     validarDescuento();
+     //Simulamos el registro de cuenta del usuario para que pueda reclamar el descuento
+    //y almacenamos al usuario en un array de objetos
+
+    //Simulamos el registro de cuenta del usuario para que pueda reclamar el descuento
+    //y almacenamos al usuario en un array de objetos
+
+    
+    // array de objetos
+    class Cafes{
+        constructor(item, nombre, precio, peso, molienda, descripcion){
+            this.item = item;
+            this.nombre = nombre;
+            this.precio = precio;
+            this.peso = peso;
+            this.molienda = molienda;
+            this.descripcion=descripcion;
+        } 
+    }
+    //aqui seria un array de cafes
+    
+    const cafe0= new Cafes("cafe0","peru", 25000, "500 gramos", "molienda fina","Notas: mandarina, caramelo, vainilla");
+    const cafe1= new Cafes("cafe1","uganda", 30000, "1000 gramos", "molienda intermedia", "Notas: Floral,Damasco,Pelon");
+    const cafe2= new Cafes("cafe2","Brasil", 18000, "250 gramos", "molienda gruesa", "Notas: frutos rojos, almendra, chocolate");
+    const cafe3= new Cafes("cafe3", "Indonesia", 35000, "1000 gramos", "molienda fina", "Notas: frutas maduras, pomelo, chocolate");
+    const cafe4= new Cafes("cafe3", "Colombia Organico", 22000, "500 gramos", "molienda gruesa", "Notas: durazno, chocolate amargo, avellana");
+    const cafe5= new Cafes("cafe4", "Costa Rica", 28000, "1000 gramos", "molienda intermedia", "Notas: frutos rojos, chocolate");
+    const cafe6= new Cafes("cafe5", "Irlanda", 60000, "500 gramos", "molienda fina", "Notas: frutos rojos, chocolate, especias");
+    // debajo tenemos un array de objetos
+    tiposDeCafe= [cafe0, cafe1, cafe2, cafe3, cafe4, cafe5, cafe6];
+
+    class ConstruccionUsuarios{
+        constructor(nombreUsuario, correoElectronico, numeroTelefono, contraseña){
+            this.nombreUsuario=nombreUsuario;
+            this.correoElectronico=correoElectronico;
+            this.numeroTelefono=numeroTelefono;
+            this.contraseña=contraseña;
+        }
+    }
+    const usuarios =[];
+    function crearUsuario(){
+        let nombreUsuario= prompt("Ingrese un nombre de usuario que quiera utilizar");
+        let correoElectronico= prompt("ingrese su correo electronico");
+        let numeroTelefono= Number(prompt("Ingrese su numero de telefono"));
+        let contraseña= prompt("ingrese su contraseña con al menos 8 caracteres");
+        let nuevoUsuario= new ConstruccionUsuarios(nombreUsuario, correoElectronico, numeroTelefono, contraseña);
+        usuarios.push(nuevoUsuario);
+        alert("El usuario: "+nombreUsuario+" a sido creado correctamente.")
+    }
+    crearUsuario();
+    
+    alert(usuarios[0].nombreUsuario+" nos han contado que te ganaste un descuento, a continuacion te mostraremos los cafes con los que puedes aprovecharlo");
+        
+    function mostrarCafes(){for (let i = 0; i < tiposDeCafe.length; i++) {
+        alert("Origen: "+tiposDeCafe[i].nombre+" \nPrecio: $"+tiposDeCafe[i].precio+"\n"+tiposDeCafe[i].descripcion);
+    };
+}
+    mostrarCafes();
+
+    eleccionDeCafe=prompt("ingrese el cafe que prefiera para darle mas informacion y el descuento aplicado").toLowerCase();
+    const eleccion= tiposDeCafe.find(cafe=>cafe.nombre.toLowerCase()==eleccionDeCafe.toLowerCase());
+    console.log(eleccion);
+
+        if(tiposDeCafe.some(coffe=>coffe.nombre.toLowerCase()==eleccionDeCafe.toLowerCase())){
+            // Aplicamos descuento
+            newPrecio= eleccion.precio - (eleccion.precio * 20 /100);
+            alert("El cafe que has seleccionado viene de a "+eleccion.peso+" y lo enviamos con una "+eleccion.molienda+" con el descuento que te has ganado tu cafe paso de valer $"+eleccion.precio+" a: $"+newPrecio);
+        }else{
+            alert("Porfavor ingrese uno de los cafes visualizados anteriormente");
+            mostrarCafes();
+            eleccionDeCafe= prompt("ingrese el cafe que prefiera para darle mas informacion y el descuento aplicado").toLowerCase();
+        };
+    
+    // // Aplicamos descuento
+    // newPrecio= eleccion.precio - (eleccion.precio * 20 /100);
+
+    //aqui seria un array de productos complementarios para el cafe 👇
+    class Cafeteras {
+        constructor(nombre, precio, mecanismo) {
+            this.nombre= nombre;
+            this.precio= precio;
+            this.mecanismo= mecanismo;
+        }
+    }
+    const cafetera1 = new Cafeteras("Italiana", 42000, "Manual");
+    const cafetera2 = new Cafeteras("Moka", 38000, "Manual");
+    const cafetera3 = new Cafeteras("Espresso", 72500, "electrico");
+    const cafetera4 = new Cafeteras("chemex", 58000, "Manual");
+    const cafetera5 = new Cafeteras("Italiana", 42000, "Manual");
+    const cafetera6 = new Cafeteras("Prensa Francesa", 40000, "Manual");
+    const cafetera7 = new Cafeteras("aeropress", 25000, "Electrica");
+    
+    const tiposDeCafeteras = [cafetera1, cafetera2, cafetera3, cafetera4, cafetera5, cafetera6, cafetera7];
+    
+    
+    
 
